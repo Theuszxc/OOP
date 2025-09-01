@@ -1,15 +1,18 @@
-package veiculos;
+package funcionarios;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Principal {
     public static void main(String[] args) {
-        Automovel carro = new Automovel("Toyota", "zupra", 1994, "Laranja", 2, "2JZ-GTE");
-        System.out.println("=== Dados do Automóvel ===");
-        carro.exibirInfo();
+        List<Funcionario> funcionarios = new ArrayList<>();
 
-        System.out.println();
+        funcionarios.add(new Jornada(1, "Negroso", "1539389", 1001, "Rua valtinho da 2", 25.0, 160));
+        funcionarios.add(new Horista(2, "João", "1539393", 1002, "Rua creber amenon", 30.0, 100));
+        funcionarios.add(new PessoaJuridica(3, "Empresa X", "112233", 1003, "Rua Colombo", 10000.0, 1500.0));
 
-        Moto moto = new Moto("Yamaha", "R15 ABS", 2025, "Preta", 155);
-        System.out.println("=== Dados da Moto ===");
-        moto.exibirInfo();
+        for (Funcionario f : funcionarios) {
+            f.calculaSalario();
+        }
     }
 }
